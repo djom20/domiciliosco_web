@@ -1,0 +1,118 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #b9363c;
+  background-image: url('../images/login/background6.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.stores, .socialmedia {
+  text-align: right;
+  height: 53px;
+  margin: 30px 0;
+}
+.play_store, .apps_store {
+  margin: 5px 0;
+}
+.login {
+  width: 25%;
+  margin: 0 auto;
+  margin-top: 2%;
+  box-shadow: 0px 0px 20px #000;
+}
+a.altiviaot_logo {
+  text-decoration: none;
+  color: #000;
+}
+a.altiviaot_logo>img {
+  width: 5em;
+}
+.input-group {
+  margin: 5px 0;
+}
+.copy{
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+/*.logotext{
+  margin: 0 auto;
+  width: 330px;
+}
+.logotext>img{
+  width: 100%;
+}*/
+
+@media only screen and (max-width : 320px) {
+  .login { width: 100%; }
+  .apps_store>a>img { width: 100%; }
+  .play_store>a>img { width: 100%; }
+  .logotext{ width: 100%; }
+  .language{ margin: 20px 0; }
+  body { padding-top: 20px; padding-bottom: 20px; }
+  .form-group, .input-group { width: 100%; }
+}
+
+.container .language {
+  text-align: right;
+  padding-right: 0;
+}
+
+.container .btn.btn-lang {
+  background-color: #5cb85c;
+  color: #FFFFFF;
+  margin-bottom: 5px;
+  padding: 5px;
+  font-size: 10px;
+}
+
+.container .btn {
+  border-radius: 0;
+  border-color: #5cb85c;
+}
+
+.container .btn.btn-lang:hover, .container .btn.btn-lang:active, .container .btn.btn-lang:focus {
+  background-color: #449d44;
+  border-color: #4cae4c;
+}
+
+.link-password {
+  color:#fff !important;
+  text-align: center;
+  margin: 10px 0 0 0;
+}

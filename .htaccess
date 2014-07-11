@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+	## STOP PHP
+	##RewriteCond %{HTTP_HOST} ^http://domiciliosco.info/admin/$
+	##RewriteRule ^/?$ "[url]http://domiciliosco.info/admin/public/$1[/url]" [L,R=301]
+
+	#RewriteEngine On
+   	#RewriteRule ^(.*)$ public/$1
+
+
+    #RewriteEngine on
+    #RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

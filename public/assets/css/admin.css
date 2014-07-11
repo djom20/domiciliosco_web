@@ -1,0 +1,20 @@
+.logo_center { width: 320px; }
+::selection { background: #f4726d; color: #444; text-shadow: none; }
+body { padding-top: 70px; }
+footer { background: #252525; border-top: 1px solid #222; width: 100%; color: #555; position: absolute; padding-top: 10px; bottom: 0; }
+.navbar-brand { padding: 7px 15px; }
+.img-profile { margin: 0 auto; width: 5em; }
+th {
+	text-align: center !important;
+}
+#info_search {
+	margin: 25px 0;
+}
+#info_search > small{
+	display: block;
+}
+
+/* Desktops and laptops Small ----------- */
+@media only screen and (max-width : 320px) {
+	.logo_center { width: 70%; }
+}
