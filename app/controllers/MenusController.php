@@ -10,7 +10,11 @@ class MenusController extends \BaseController {
 	public function index()
 	{
 		if (!Auth::check()) return Redirect::to('/');
-		else return View::make('dashboard.menus.index');
+		else{
+			$menus = Menu::all();
+			$menu_category = MenuCategory::all();
+			return View::make('dashboard.menus.index')->with('menus', $menus)->with('menu_category', $menu_category);
+		}
 	}
 
 	/**

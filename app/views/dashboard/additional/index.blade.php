@@ -50,7 +50,7 @@
 		          			<tr>
 		            			<th>#</th>
 								<th>Restaurante</th>
-								<th>Item</th>
+								<!-- <th>Item</th> -->
 								<th>Descripción</th>
 								<th>Precio</th>
 								<th>Comida</th>
@@ -58,42 +58,19 @@
 		          			</tr>
 		        		</thead>
 		        		<tbody>
+		        			@foreach ($adicionales as $adicional)
 							<tr>
-								<td>1</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
+								<td>{{ $adicional->getKey() }}</td>
+								<td>{{ $adicional->getRestaurant() }}</td>
+								<td>{{ $adicional->getDescription() }}</td>
+								<td>{{ $adicional->getPrice() }}</td>
+								<td>{{ $adicional->getMenu() }}</td>
 								<td>
 									<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
 									<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
 								</td>
 							</tr>
-							<tr>
-								<td>2</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
-								</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
-								</td>
-							</tr>
+							@endforeach
 	        			</tbody>
 					</table>
 	  			</div>

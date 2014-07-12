@@ -81,6 +81,7 @@
 		  				<thead>
 		          			<tr>
 		            			<th>#</th>
+								<th>Restaurante</th>
 								<th>Categoria</th>
 								<th>Nombre</th>
 								<th>Descripcion</th>
@@ -90,54 +91,21 @@
 		          			</tr>
 		        		</thead>
 		        		<tbody>
+		        			@foreach ($menus as $menu)
 							<tr>
-								<td>1</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
+								<td>{{ $menu->getKey() }}</td>
+								<td>{{ $menu->getRestaurant() }}</td>
+								<td>{{ $menu->getCategory() }}</td>
+								<td>{{ $menu->getName() }}</td>
+								<td>{{ $menu->getDescription() }}</td>
+								<td>{{ $menu->getPrice() }}</td>
+								<td>{{ $menu->getAditional() }}</td>
 								<td>
 									<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
 									<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
 								</td>
 							</tr>
-							<tr>
-								<td>2</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
-								</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
-								</td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>Table cell</td>
-								<td>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
-								</td>
-							</tr>
+							@endforeach
 	        			</tbody>
 					</table>
 	  			</div>
@@ -168,30 +136,16 @@
 		          			</tr>
 		        		</thead>
 		        		<tbody>
+		        			@foreach ($menu_category as $mc)
 							<tr>
-								<td>1</td>
-								<td>Table cell</td>
+								<td>{{ $mc->getKey() }}</td>
+								<td>{{ $mc->getName() }}</td>
 								<td>
 									<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
 									<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
 								</td>
 							</tr>
-							<tr>
-								<td>2</td>
-								<td>Table cell</td>
-								<td>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
-								</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Table cell</td>
-								<td>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
-									<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
-								</td>
-							</tr>
+							@endforeach
 	        			</tbody>
 					</table>
   				</div>

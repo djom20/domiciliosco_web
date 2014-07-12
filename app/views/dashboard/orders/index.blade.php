@@ -11,7 +11,7 @@
 	</ul>
 
 	<div class="tab-content">
-  		<div class="tab-pane active" id="ordenes">
+  		<div class="tab-pane fade in active" id="ordenes">
   			<h3>Listar Ordenes</h3>
   			<br>
   			<form role="form">
@@ -98,7 +98,7 @@
 				</table>
   			</div>
   		</div>
-  		<div class="tab-pane" id="proceso">
+  		<div class="tab-pane fade" id="proceso">
   			<h3>Listar Ordenes</h3>
   			<br>
   			<form role="form">
@@ -182,7 +182,7 @@
 				</table>
   			</div>
   		</div>
-  		<div class="tab-pane" id="atendidos">
+  		<div class="tab-pane fade" id="atendidos">
   			<h3>Listar Ordenes</h3>
   			<br>
   			<form role="form">
@@ -253,7 +253,7 @@
 				</table>
   			</div>
   		</div>
-  		<div class="tab-pane" id="rechazados">
+  		<div class="tab-pane fade" id="rechazados">
   			<h3>Listar Ordenes</h3>
   			<br>
   			<form role="form">
@@ -324,7 +324,7 @@
 				</table>
   			</div>
   		</div>
-  		<div class="tab-pane" id="problemas">
+  		<div class="tab-pane fade" id="problemas">
   			<h3>Listar Ordenes</h3>
   			<br>
   			<form role="form">
@@ -394,7 +394,7 @@
 				</table>
   			</div>
   		</div>
-  		<!-- <div class="tab-pane" id="buscar">
+  		<!-- <div class="tab-pane fade" id="buscar">
   			<div class="col-md-3">
 	  			<h3>Buscar Ordenes</h3>
 	  			<br>

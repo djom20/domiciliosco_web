@@ -29,29 +29,39 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
                     <ul class="nav navbar-nav">
-                        @if(Request::segment(2) === 'additional') <li class="active"> @else <li> @endif
-                        <a href="{{ url('/dashboard/additional') }}">Adicionales</a></li>
+                        @if(Auth::user()->getRole() != 2)
+                            @if(Request::segment(2) === 'additional') <li class="active"> @else <li> @endif
+                            <a href="{{ url('dashboard/additional') }}">Adicionales</a></li>
+                        @endif
 
-                        @if(Request::segment(2) === 'banners') <li class="active"> @else <li> @endif
-                        <a href="{{ url('/dashboard/banners') }}">Banners</a></li>
+                        @if(Auth::user()->getRole() == 1)
+                            @if(Request::segment(2) === 'banners') <li class="active"> @else <li> @endif
+                            <a href="{{ url('dashboard/banners') }}">Banners</a></li>
+                        @endif
 
-                        @if(Request::segment(2) === 'menus') <li class="active"> @else <li> @endif
-                        <a href="{{ url('/dashboard/menus') }}">Menus</a></li>
+                        @if(Auth::user()->getRole() != 2)
+                            @if(Request::segment(2) === 'menus') <li class="active"> @else <li> @endif
+                            <a href="{{ url('dashboard/menus') }}">Menus</a></li>
+                        @endif
 
                         @if(Request::segment(2) === 'orders') <li class="active"> @else <li> @endif
-                        <a href="{{ url('/dashboard/orders') }}">Ordenes</a></li>
+                        <a href="{{ url('dashboard/orders') }}">Ordenes</a></li>
 
-                        @if(Request::segment(2) === 'reports') <li class="active"> @else <li> @endif
-                        <a href="{{ url('/dashboard/reports') }}">Reportes</a></li>
+                        @if(Auth::user()->getRole() != 2)
+                            @if(Request::segment(2) === 'reports') <li class="active"> @else <li> @endif
+                            <a href="{{ url('dashboard/reports') }}">Reportes</a></li>
+                        @endif
 
-                        @if(Request::segment(2) === 'restaurants') <li class="active"> @else <li> @endif
-                        <a href="{{ url('/dashboard/restaurants') }}">Restaurantes</a></li>
+                        @if(Auth::user()->getRole() == 1)
+                            @if(Request::segment(2) === 'restaurants') <li class="active"> @else <li> @endif
+                            <a href="{{ url('dashboard/restaurants') }}">Restaurantes</a></li>
 
-                        @if(Request::segment(2) === 'users') <li class="active"> @else <li> @endif
-                        <a href="{{ url('/dashboard/users') }}">Usuarios</a></li>
+                            @if(Request::segment(2) === 'users') <li class="active"> @else <li> @endif
+                            <a href="{{ url('dashboard/users') }}">Usuarios</a></li>
 
-                        @if(Request::segment(2) === 'message') <li class="active"> @else <li> @endif
-                        <a href="{{ url('/dashboard/message') }}">Mensajes</a></li>
+                            @if(Request::segment(2) === 'message') <li class="active"> @else <li> @endif
+                            <a href="{{ url('dashboard/message') }}">Mensajes</a></li>
+                        @endif
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -60,9 +70,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->getName() }} <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#"><img src="/admin/public/profiles/default.jpg" alt="" class="img-profile img-circle img-responsive"></a></li>
-                                <li><a href="#">Administrador</a></li>
-                                <li><a href="#">Configuraciones</a></li>
-                                <li><a href="#">Cambio de contraseña</a></li>
+                                <li><a href="#">{{ Auth::user()->getRole() }}</a></li>
+                                <li><a href="{{ url('dashboard/profile/'.Auth::user()->getAuthIdentifier()) }}">Configuraciones</a></li>
                                 <li class="divider"></li>
                                 <li>{{ HTML::link('/session/'.Auth::user()->getAuthIdentifier().'/destroy', 'Cerrar Sesion') }}</li>
                             </ul>

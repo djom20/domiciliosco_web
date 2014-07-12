@@ -44,7 +44,11 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		if (!Auth::check()) return Redirect::to('/');
+		else{
+			$user = User::find($id);
+			return View::make('dashboard.users.show')->with('user', $user);
+		}
 	}
 
 	/**

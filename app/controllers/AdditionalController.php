@@ -10,7 +10,10 @@ class AdditionalController extends BaseController {
 	public function index()
 	{
 		if (!Auth::check()) return Redirect::to('/');
-		else return View::make('dashboard.additional.index');
+		else{
+			$adicionales = Additional::all();
+			return View::make('dashboard.additional.index')->with('adicionales', $adicionales);
+		}
 	}
 
 	/**

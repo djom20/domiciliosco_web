@@ -23,6 +23,7 @@ Route::group(array('after' => 'auth'), function(){
 	Route::group(array('prefix' => 'dashboard'), function()
 	{
 	    Route::get('/', array('as'=> 'dashboard', 'uses' => 'HomeController@index'));
+	    Route::get('profile/{id}', array('as'=> 'profile', 'uses' => 'UsersController@show'));
 		Route::resource('additional', 'AdditionalController');
 		Route::resource('banners', 'BannersController');
 		Route::resource('menus', 'MenusController');
