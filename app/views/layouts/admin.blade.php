@@ -101,4 +101,5 @@
    	</body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     {{ HTML::script('assets/js/bootstrap.min.js') }}
+    @yield('scripts')
 </html>

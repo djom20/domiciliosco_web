@@ -14,21 +14,18 @@
 					<div class="form-group">
 	    				<label class="visible-xs-inline-block" for="exampleInputPassword1">Restaurante</label>
 	    				<select class="form-control">
-							<option>Restaurante 1</option>
-							<option>Restaurante 2</option>
-							<option>Restaurante 3</option>
-							<option>Restaurante 4</option>
-							<option>Restaurante 5</option>
+	    					@foreach($restaurants as $restaurant)
+								<option value="{{ $restaurant->getKey() }}">{{ $restaurant->getName() }}</option>
+							@endforeach
 						</select>
 					</div>
 					<div class="form-group">
 						<label class="visible-xs-inline-block" for="exampleInputPassword1">Estado</label>
 						<select class="form-control">
-							<option>Estado 1</option>
-							<option>Estado 2</option>
-							<option>Estado 3</option>
-							<option>Estado 4</option>
-							<option>Estado 5</option>
+							<option value="1">En Progreso</option>
+							<option value="3">Aceptado</option>
+							<option value="4">Rechazado</option>
+							<option value="5">Con problemas</option>
 						</select>
 					</div>
 					<div class="form-group">

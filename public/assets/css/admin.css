@@ -14,6 +14,16 @@ th {
 	display: block;
 }
 
+.select-group-left{
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	margin-left: -1px;
+}
+.select-group-rigth{
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+}
+
 /* Desktops and laptops Small ----------- */
 @media only screen and (max-width : 320px) {
 	.logo_center { width: 70%; }

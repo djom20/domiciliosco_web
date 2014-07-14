@@ -10,7 +10,10 @@ class MessageController extends BaseController {
 	public function index()
 	{
 		if (!Auth::check()) return Redirect::to('/');
-		else return View::make('dashboard.message.index');
+		else{
+			$users = User::all();
+			return View::make('dashboard.message.index')->with('users', $users);
+		}
 	}
 
 	/**

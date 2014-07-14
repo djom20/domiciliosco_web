@@ -12,7 +12,10 @@ class RestaurantsController extends \BaseController {
 		if (!Auth::check()) return Redirect::to('/');
 		else{
 			$restaurants = Restaurant::all();
-			return View::make('dashboard.restaurants.index')->with('restaurants', $restaurants);
+			$restaurantsCategory = RestaurantCategory::all();
+			return View::make('dashboard.restaurants.index')
+				->with('restaurants', $restaurants)
+				->with('restaurantsCategory', $restaurantsCategory);
 		}
 	}
 

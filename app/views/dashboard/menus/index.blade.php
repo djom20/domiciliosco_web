@@ -15,21 +15,17 @@
   					<div class="form-group">
 	    				<label class="visible-xs-inline-block" for="exampleInputPassword1">Restaurante</label>
 	    				<select class="form-control">
-							<option>Restaurante 1</option>
-							<option>Restaurante 2</option>
-							<option>Restaurante 3</option>
-							<option>Restaurante 4</option>
-							<option>Restaurante 5</option>
+	    					@foreach($restaurants as $restaurant)
+          						<option value="{{ $restaurant->getKey() }}">{{ $restaurant->getName() }}</option>
+          					@endforeach
 						</select>
   					</div>
   					<div class="form-group">
 	    				<label class="visible-xs-inline-block" for="exampleInputPassword1">Categoria</label>
 	    				<select class="form-control">
-							<option>Categoria 1</option>
-							<option>Categoria 2</option>
-							<option>Categoria 3</option>
-							<option>Categoria 4</option>
-							<option>Categoria 5</option>
+							@foreach($menu_category as $mc)
+          						<option value="{{ $mc->getKey() }}">{{ $mc->getName() }}</option>
+          					@endforeach
 						</select>
   					</div>
   					<div class="form-group">
@@ -54,28 +50,23 @@
   			<div class="col-md-9">
   				<h3>Listar Menus</h3>
 	  			<br>
-	  			<form role="form">
-  					<div class="form-group">
-	    				<label class="visible-xs-inline-block" for="exampleInputPassword1">Restaurante</label>
-	    				<select class="form-control">
-							<option>Restaurante 1</option>
-							<option>Restaurante 2</option>
-							<option>Restaurante 3</option>
-							<option>Restaurante 4</option>
-							<option>Restaurante 5</option>
+	  			<div class="btn-group btn-group-justified">
+      				<div class="btn-group">
+        				<select class="form-control select-group-rigth">
+	    					@foreach($restaurants as $restaurant)
+          						<option value="{{ $restaurant->getKey() }}">{{ $restaurant->getName() }}</option>
+          					@endforeach
 						</select>
-  					</div>
-  					<div class="form-group">
-	    				<label class="visible-xs-inline-block" for="exampleInputPassword1">Categoria</label>
-	    				<select class="form-control">
-							<option>Categoria 1</option>
-							<option>Categoria 2</option>
-							<option>Categoria 3</option>
-							<option>Categoria 4</option>
-							<option>Categoria 5</option>
+      				</div>
+      				<div class="btn-group">
+        				<select class="form-control select-group-left">
+							@foreach($menu_category as $mc)
+          						<option value="{{ $mc->getKey() }}">{{ $mc->getName() }}</option>
+          					@endforeach
 						</select>
-  					</div>
-  				</form>
+      				</div>
+    			</div>
+    			<br>
   				<div class="table-responsive">
 	  				<table class="table table-condensed">
 		  				<thead>

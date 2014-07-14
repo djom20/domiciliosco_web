@@ -10,7 +10,13 @@ class OrdersController extends \BaseController {
 	public function index()
 	{
 		if (!Auth::check()) return Redirect::to('/');
-		else return View::make('dashboard.orders.index');
+		else{
+			$restaurants = Restaurant::all();
+			$users = User::all();
+			return View::make('dashboard.orders.index')
+				->with('restaurants', $restaurants)
+				->with('users', $users);
+		}
 	}
 
 	/**

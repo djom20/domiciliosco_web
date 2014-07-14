@@ -15,28 +15,27 @@
   			<h3>Listar Ordenes</h3>
   			<br>
   			<form role="form">
-  				<p>Total de pedidos sin atender es : $0</p>
-  				<p>Cantidad de pedidos sin atender es : 0</p>
-				<div class="form-group">
-    				<label class="visible-xs-inline-block" for="exampleInputPassword1">Restaurante</label>
-    				<select class="form-control">
-						<option>Restaurante 1</option>
-						<option>Restaurante 2</option>
-						<option>Restaurante 3</option>
-						<option>Restaurante 4</option>
-						<option>Restaurante 5</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label class="visible-xs-inline-block" for="exampleInputPassword1">Usuario</label>
-					<select class="form-control">
-						<option>Usuario 1</option>
-						<option>Usuario 2</option>
-						<option>Usuario 3</option>
-						<option>Usuario 4</option>
-						<option>Usuario 5</option>
-					</select>
-				</div>
+  				<div class="row">
+  					<div class="col-md-6"><p>Total de pedidos sin atender es : $0</p></div>
+  					<div class="col-md-6"><p>Cantidad de pedidos sin atender es : 0</p></div>
+  				</div class="row">
+				<div class="btn-group btn-group-justified">
+      				<div class="btn-group">
+        				<select class="form-control select-group-rigth">
+	    					@foreach($restaurants as $restaurant)
+          						<option value="{{ $restaurant->getKey() }}">{{ $restaurant->getName() }}</option>
+          					@endforeach
+						</select>
+      				</div>
+      				<div class="btn-group">
+        				<select class="form-control select-group-left">
+							@foreach($users as $user)
+          						<option value="{{ $user->getKey() }}">{{ $user->getName() }}</option>
+          					@endforeach
+						</select>
+      				</div>
+    			</div>
+    			<br>
 			</form>
 			<div class="table-responsive">
   				<table class="table table-condensed">
@@ -102,28 +101,27 @@
   			<h3>Listar Ordenes</h3>
   			<br>
   			<form role="form">
-  				<p>Total de pedidos en proceso es : $0</p>
-  				<p>Cantidad de pedidos en proceso es : 0</p>
-				<div class="form-group">
-    				<label class="visible-xs-inline-block" for="exampleInputPassword1">Restaurante</label>
-    				<select class="form-control">
-						<option>Restaurante 1</option>
-						<option>Restaurante 2</option>
-						<option>Restaurante 3</option>
-						<option>Restaurante 4</option>
-						<option>Restaurante 5</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label class="visible-xs-inline-block" for="exampleInputPassword1">Usuario</label>
-					<select class="form-control">
-						<option>Usuario 1</option>
-						<option>Usuario 2</option>
-						<option>Usuario 3</option>
-						<option>Usuario 4</option>
-						<option>Usuario 5</option>
-					</select>
-				</div>
+  				<div class="row">
+  					<div class="col-md-6"><p>Total de pedidos en proceso es : $0</p></div>
+  					<div class="col-md-6"><p>Cantidad de pedidos en proceso es : 0</p></div>
+  				</div>
+				<div class="btn-group btn-group-justified">
+      				<div class="btn-group">
+        				<select class="form-control select-group-rigth">
+	    					@foreach($restaurants as $restaurant)
+          						<option value="{{ $restaurant->getKey() }}">{{ $restaurant->getName() }}</option>
+          					@endforeach
+						</select>
+      				</div>
+      				<div class="btn-group">
+        				<select class="form-control select-group-left">
+							@foreach($users as $user)
+          						<option value="{{ $user->getKey() }}">{{ $user->getName() }}</option>
+          					@endforeach
+						</select>
+      				</div>
+    			</div>
+    			<br>
 			</form>
 			<div class="table-responsive">
   				<table class="table table-condensed">
@@ -186,28 +184,27 @@
   			<h3>Listar Ordenes</h3>
   			<br>
   			<form role="form">
-  				<p>Total de pedidos atendidos es : $0</p>
-  				<p>Cantidad de pedidos atendidos es : 0</p>
-				<div class="form-group">
-    				<label class="visible-xs-inline-block" for="exampleInputPassword1">Restaurante</label>
-    				<select class="form-control">
-						<option>Restaurante 1</option>
-						<option>Restaurante 2</option>
-						<option>Restaurante 3</option>
-						<option>Restaurante 4</option>
-						<option>Restaurante 5</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label class="visible-xs-inline-block" for="exampleInputPassword1">Usuario</label>
-					<select class="form-control">
-						<option>Usuario 1</option>
-						<option>Usuario 2</option>
-						<option>Usuario 3</option>
-						<option>Usuario 4</option>
-						<option>Usuario 5</option>
-					</select>
-				</div>
+  				<div class="row">
+  					<div class="col-md-6"><p>Total de pedidos atendidos es : $0</p></div>
+  					<div class="col-md-6"><p>Cantidad de pedidos atendidos es : 0</p></div>
+  				</div>
+				<div class="btn-group btn-group-justified">
+      				<div class="btn-group">
+        				<select class="form-control select-group-rigth">
+	    					@foreach($restaurants as $restaurant)
+          						<option value="{{ $restaurant->getKey() }}">{{ $restaurant->getName() }}</option>
+          					@endforeach
+						</select>
+      				</div>
+      				<div class="btn-group">
+        				<select class="form-control select-group-left">
+							@foreach($users as $user)
+          						<option value="{{ $user->getKey() }}">{{ $user->getName() }}</option>
+          					@endforeach
+						</select>
+      				</div>
+    			</div>
+    			<br>
 			</form>
 			<div class="table-responsive">
   				<table class="table table-condensed">
@@ -257,28 +254,27 @@
   			<h3>Listar Ordenes</h3>
   			<br>
   			<form role="form">
-  				<p>Total de pedidos rechazados es : $0</p>
-  				<p>Cantidad de pedidos rechazados es : 0</p>
-				<div class="form-group">
-    				<label class="visible-xs-inline-block" for="exampleInputPassword1">Restaurante</label>
-    				<select class="form-control">
-						<option>Restaurante 1</option>
-						<option>Restaurante 2</option>
-						<option>Restaurante 3</option>
-						<option>Restaurante 4</option>
-						<option>Restaurante 5</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label class="visible-xs-inline-block" for="exampleInputPassword1">Usuario</label>
-					<select class="form-control">
-						<option>Usuario 1</option>
-						<option>Usuario 2</option>
-						<option>Usuario 3</option>
-						<option>Usuario 4</option>
-						<option>Usuario 5</option>
-					</select>
-				</div>
+  				<div class="row">
+  					<div class="col-md-6"><p>Total de pedidos rechazados es : $0</p></div>
+  					<div class="col-md-6"><p>Cantidad de pedidos rechazados es : 0</p></div>
+  				</div>
+				<div class="btn-group btn-group-justified">
+      				<div class="btn-group">
+        				<select class="form-control select-group-rigth">
+	    					@foreach($restaurants as $restaurant)
+          						<option value="{{ $restaurant->getKey() }}">{{ $restaurant->getName() }}</option>
+          					@endforeach
+						</select>
+      				</div>
+      				<div class="btn-group">
+        				<select class="form-control select-group-left">
+							@foreach($users as $user)
+          						<option value="{{ $user->getKey() }}">{{ $user->getName() }}</option>
+          					@endforeach
+						</select>
+      				</div>
+    			</div>
+    			<br>
 			</form>
 			<div class="table-responsive">
   				<table class="table table-condensed">
@@ -329,26 +325,23 @@
   			<br>
   			<form role="form">
   				<p>La cantidad de pedidos con problemas es : 0</p>
-				<div class="form-group">
-    				<label class="visible-xs-inline-block" for="exampleInputPassword1">Restaurante</label>
-    				<select class="form-control">
-						<option>Restaurante 1</option>
-						<option>Restaurante 2</option>
-						<option>Restaurante 3</option>
-						<option>Restaurante 4</option>
-						<option>Restaurante 5</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label class="visible-xs-inline-block" for="exampleInputPassword1">Usuario</label>
-					<select class="form-control">
-						<option>Usuario 1</option>
-						<option>Usuario 2</option>
-						<option>Usuario 3</option>
-						<option>Usuario 4</option>
-						<option>Usuario 5</option>
-					</select>
-				</div>
+				<div class="btn-group btn-group-justified">
+      				<div class="btn-group">
+        				<select class="form-control select-group-rigth">
+	    					@foreach($restaurants as $restaurant)
+          						<option value="{{ $restaurant->getKey() }}">{{ $restaurant->getName() }}</option>
+          					@endforeach
+						</select>
+      				</div>
+      				<div class="btn-group">
+        				<select class="form-control select-group-left">
+							@foreach($users as $user)
+          						<option value="{{ $user->getKey() }}">{{ $user->getName() }}</option>
+          					@endforeach
+						</select>
+      				</div>
+    			</div>
+    			<br>
 			</form>
 			<div class="table-responsive">
   				<table class="table table-condensed">

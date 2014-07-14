@@ -10,7 +10,10 @@ class ReportsController extends \BaseController {
 	public function index()
 	{
 		if (!Auth::check()) return Redirect::to('/');
-		else return View::make('dashboard.reports.index');
+		else{
+			$restaurants = Restaurant::all();
+			return View::make('dashboard.reports.index')->with('restaurants', $restaurants);
+		}
 	}
 
 	/**

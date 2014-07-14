@@ -13,7 +13,11 @@ class MenusController extends \BaseController {
 		else{
 			$menus = Menu::all();
 			$menu_category = MenuCategory::all();
-			return View::make('dashboard.menus.index')->with('menus', $menus)->with('menu_category', $menu_category);
+			$restaurants = Restaurant::all();
+			return View::make('dashboard.menus.index')
+				->with('menus', $menus)
+				->with('menu_category', $menu_category)
+				->with('restaurants', $restaurants);
 		}
 	}
 
