@@ -14,10 +14,31 @@ class CreateCategoryTable extends Migration {
 		Schema::create('category', function($table)
 		{
 			$table->increments('id');
-	         $table->string('name', 100);
-	        $table->integer('state');
+	        $table->string('name', 100);
+	        $table->integer('state')->default(1);
 	        $table->timestamps();
+	        $table->engine = 'InnoDB';
 		});
+
+		DB::table('category')->insert(array(
+			'name' => 'Carnes',
+			'created_at' => date('Y-m-d g:i:s')
+		));
+
+		DB::table('category')->insert(array(
+			'name' => 'Comida China',
+			'created_at' => date('Y-m-d g:i:s')
+		));
+
+		DB::table('category')->insert(array(
+			'name' => 'Comida Rapida',
+			'created_at' => date('Y-m-d g:i:s')
+		));
+
+		DB::table('category')->insert(array(
+			'name' => 'Pizzeria',
+			'created_at' => date('Y-m-d g:i:s')
+		));
 	}
 
 	/**

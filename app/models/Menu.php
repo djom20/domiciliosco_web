@@ -11,7 +11,7 @@ class Menu extends Eloquent {
 	public function getName(){ return $this->name; }
 	public function getDescription(){ return $this->description; }
 	public function getPrice(){ return $this->price; }
-	public function getAditional(){ return $this->aditional; }
+	public function getAditional(){ return $this->hasMany('Additional'); }
 	public function getState(){ return $this->state; }
 
 }

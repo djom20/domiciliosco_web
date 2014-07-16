@@ -17,6 +17,7 @@ class CreateCategoryMenuTable extends Migration {
 	        $table->string('name', 100);
 	        $table->integer('state')->default(1);
 	        $table->timestamps();
+	        $table->engine = 'InnoDB';
 		});
 
 		DB::table('menus_category')->insert(array(

@@ -397,7 +397,7 @@
 						<tr>
 							<td>{{ $restaurant->getName() }}</td>
 							<td>{{ $restaurant->getDescription() }}</td>
-							<td>{{ $restaurant->getFood() }}</td>
+							<td>{{ $restaurant->getCategory() }}</td>
 							<td>{{ HTML::image('uploads/restaurants/'.$restaurant->getLogo(), $restaurant->getName(), array('style' => 'width:14em;')) }}</td>
 							<!-- <td></td> -->
 							<td>{{ $restaurant->getAddress() }}</td>

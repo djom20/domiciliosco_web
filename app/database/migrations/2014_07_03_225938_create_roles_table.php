@@ -16,10 +16,21 @@ class CreateRolesTable extends Migration {
 			$table->increments('id');
 	        $table->string('name', 255)->unique();
 	        $table->date('created_at');
+	        $table->engine = 'InnoDB';
 		});
 
 		DB::table('roles')->insert(array(
 			'name' => 'Administrator',
+			'created_at' => date('Y-m-d g:i:s')
+		));
+
+		DB::table('roles')->insert(array(
+			'name' => 'Central',
+			'created_at' => date('Y-m-d g:i:s')
+		));
+
+		DB::table('roles')->insert(array(
+			'name' => 'Restaurant',
 			'created_at' => date('Y-m-d g:i:s')
 		));
 	}

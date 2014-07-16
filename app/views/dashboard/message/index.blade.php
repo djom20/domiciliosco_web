@@ -21,6 +21,50 @@
     	</form>
     </div>
     <div class="col-md-9">
-    	
+    	<div class="table-responsive">
+    		<h3>Listar Push Enviados</h3>
+    		<br>
+			<table class="table table-condensed">
+  				<thead>
+          			<tr>
+            			<th>#</th>
+						<th>Usuario</th>
+						<th>Mensaje</th>
+						<th>Fecha</th>
+						<th>Hora</th>
+          			</tr>
+        		</thead>
+        		<tbody>
+					<tr>
+						<td>1</td>
+						<td>Table cell</td>
+						<td>Table cell</td>
+						<td>Table cell</td>
+						<td>Table cell</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Table cell</td>
+						<td>Table cell</td>
+						<td>Table cell</td>
+						<td>Table cell</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Table cell</td>
+						<td>Table cell</td>
+						<td>Table cell</td>
+						<td>Table cell</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>Table cell</td>
+						<td>Table cell</td>
+						<td>Table cell</td>
+						<td>Table cell</td>
+					</tr>
+    			</tbody>
+			</table>
+		</div>
     </div>
 @stop

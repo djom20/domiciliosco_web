@@ -52,13 +52,19 @@
 			</div>
 			<div class="col-md-9">
 				<h3>Listar Ordenes</h3>
-	  			<br>
 	  			<div id="info_search" class="text-left">
-					<small>Total Ordenes Aceptadas: 0</small>
-					<small>Total Ordenes Rechazadas: 0</small>
-					<small>Total Ordenes: 0</small>
-					<small>Total de venta del restaurante: $ 0</small>
-					<small>Total de perdida del restaurante: $ 0</small>
+		  			<div class="btn-group">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+							Estadisticas <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="">Total Ordenes Aceptadas: 0</a></li>
+							<li><a href="">Total Ordenes Rechazadas: 0</a></li>
+							<li><a href="">Total Ordenes: 0</a></li>
+							<li><a href="">Total de venta del restaurante: $ 0</a></li>
+							<li><a href="">Total de perdida del restaurante: $ 0</a></li>							
+						</ul>
+					</div>
 				</div>
 				<div class="table-responsive">
 	  				<table class="table table-condensed">

@@ -19,6 +19,7 @@ class CreateBannersTable extends Migration {
 	        $table->string('description', 100)->nullable();
 	        $table->integer('state')->default(1);
 	        $table->timestamps();
+	        $table->engine = 'InnoDB';
 		});
 
 		DB::table('banners')->insert(array(

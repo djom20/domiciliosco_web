@@ -11,8 +11,18 @@ class AdditionalController extends BaseController {
 	{
 		if (!Auth::check()) return Redirect::to('/');
 		else{
-			$adicionales = Additional::all();
-			return View::make('dashboard.additional.index')->with('adicionales', $adicionales);
+			if(!Request::ajax()){
+				$additional = Additional::where('state', '=', '1')->orderBy('name')->get();
+				$menus = Menu::all();
+				$restaurants = Restaurant::all();
+				return View::make('dashboard.additional.index')
+					->with('additional', $additional)
+					->with('menus', $menus)
+					->with('restaurants', $restaurants);
+			}else{
+				$additional = Additional::where('state', '=', '1')->orderBy('name')->get();
+				return View::make('dashboard.additional.list')->with('additional', $additional);
+			}
 		}
 	}
 
@@ -33,7 +43,20 @@ class AdditionalController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		if (!Auth::check()) return 2;
+		else{
+			if(Request::ajax()){
+				$additional = new Additional();
+				$additional->setName(Input::get('name'));
+				$additional->setDescription(Input::get('description'));
+				$additional->setPrice(Input::get('price'));
+				$additional->setMenu(Input::get('food'));
+				$additional->setRestaurant(Input::get('restaurant'));
+				$additional->save();
+				return 1;
+			}
+		}
+		return 0;
 	}
 
 	/**
@@ -75,9 +98,17 @@ class AdditionalController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		//
+		if(Request::ajax()){
+			$additional = Additional::find(Input::get('id'));
+			if($additional){
+				$additional->setState(0);
+				$additional->save();
+				return 1;				
+			}
+		}
+		return 0;
 	}
 
 }

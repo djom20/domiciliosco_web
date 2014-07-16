@@ -17,11 +17,39 @@ class CreateAdditionalTable extends Migration {
 	        $table->string('name', 255)->unique();
 	        $table->string('description', 255);
 	        $table->integer('price');
-	        $table->integer('menu');
-	        $table->integer('restaurant');
-	        $table->integer('state');
+	        $table->integer('menu_id')->unsigned();
+	        $table->integer('restaurant_id')->unsigned();
+	        $table->integer('state')->default(1);
 	        $table->timestamps();
+	        $table->engine = 'InnoDB';
 		});
+
+		DB::table('additional')->insert(array(
+			'name' => 'Gaseosa Grande',
+			'description' => 'Gaseosa 16 Onz',
+			'price' => '12000',
+			'menu_id' => '1',
+			'restaurant_id' => '1',
+			'created_at' => date('Y-m-d g:i:s')
+		));
+
+		DB::table('additional')->insert(array(
+			'name' => 'Gaseosa Pequeña',
+			'description' => 'Gaseosa 16 Onz',
+			'price' => '8000',
+			'menu_id' => '1',
+			'restaurant_id' => '1',
+			'created_at' => date('Y-m-d g:i:s')
+		));
+
+		DB::table('additional')->insert(array(
+			'name' => 'Gaseosa Mediana',
+			'description' => 'Gaseosa 16 Onz',
+			'price' => '4000',
+			'menu_id' => '1',
+			'restaurant_id' => '1',
+			'created_at' => date('Y-m-d g:i:s')
+		));
 	}
 
 	/**

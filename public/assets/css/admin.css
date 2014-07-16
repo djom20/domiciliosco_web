@@ -4,16 +4,9 @@ body { padding-top: 70px; padding-bottom: 70px; }
 footer { background: #252525; border-top: 1px solid #222; width: 100%; color: #555; position: absolute; padding-top: 10px; bottom: 0; }
 .navbar-brand { padding: 7px 15px; }
 .img-profile { margin: 0 auto; width: 5em; }
-th {
-	text-align: center !important;
-}
-#info_search {
-	margin: 25px 0;
-}
-#info_search > small{
-	display: block;
-}
-
+th { text-align: center !important; }
+#info_search { margin: 25px 0; }
+#info_search > small{ display: block; }
 .select-group-left{
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
@@ -22,6 +15,13 @@ th {
 .select-group-rigth{
 	border-bottom-right-radius: 0;
 	border-top-right-radius: 0;
+}
+.select-group-center{
+	border-radius: 0;
+}
+
+#additional,#banners,#menus,#orders,#reports,#restaurants,#users,#message{
+	display: none;
 }
 
 /* Desktops and laptops Small ----------- */

@@ -14,8 +14,7 @@ class CreateUsersTable extends Migration {
 		Schema::create('users', function($table)
 		{
 			$table->increments('id');
-			// $table->foreign('role_id')->references('id')->on('roles');
-	        $table->integer('role_id');
+	        $table->integer('rol_id')->unsigned();
 	        $table->string('name', 255);
 	        $table->string('email', 100)->unique();
 	        $table->string('password', 100);
@@ -24,15 +23,19 @@ class CreateUsersTable extends Migration {
 	        $table->string('address', 100)->nullable();
 	        $table->string('cellphone', 100)->nullable();
 	        $table->string('recovery_passw', 50);
-	        // $table->string('empresa', 100);
 	        $table->timestamps();
+	        $table->engine = 'InnoDB';
 		});
 
 		DB::table('users')->insert(array(
-			'role_id' => 1,
+			'rol_id' => 1,
 			'name' => 'Jonathan Olier',
 			'email' => 'djom202@gmail.com',
 			'password' => Hash::make('admin'),
+			'age' => '25',
+			'sex' => 'H',
+			'address' => 'Calle 74 - # 70 -14',
+			'cellphone' => '3014442072',
 			'recovery_passw' => str_random(25),
 			'created_at' => date('Y-m-d g:i:s')
 		));

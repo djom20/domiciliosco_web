@@ -14,6 +14,7 @@
   				<table class="table table-condensed">
 	  				<thead>
 	          			<tr>
+							<th>Rol</th>
 							<th>Nombre</th>
 							<th>Email</th>
 							<th>Edad</th>
@@ -25,20 +26,21 @@
 	        		</thead>
 	        		<tbody>
 						@foreach ($users as $user)
-						<tr>
-							<td>{{ $user->getName() }}</td>
-							<td>{{ $user->getReminderEmail() }}</td>
-							<td>{{ $user->getAge() }}</td>
-							<td>{{ $user->getSex() }}</td>
-							<td>{{ $user->getAddress() }}</td>
-							<td>{{ $user->getCellphone() }}</td>
-							<td>
-								<button class="btn btn-danger"><span class="glyphicon glyphicon-comment"></span></button>
-								<button class="btn btn-danger"><span class="glyphicon glyphicon-phone"></span></button>
-								<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
-								<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
-							</td>
-						</tr>
+							<tr>
+								<td>{{ $user->getRoleName() }}</td>
+								<td>{{ $user->getName() }}</td>
+								<td>{{ $user->getReminderEmail() }}</td>
+								<td>{{ $user->getAge() }}</td>
+								<td>{{ $user->getSex() }}</td>
+								<td>{{ $user->getAddress() }}</td>
+								<td>{{ $user->getCellphone() }}</td>
+								<td>
+									<button class="btn btn-danger"><span class="glyphicon glyphicon-comment"></span></button>
+									<button class="btn btn-danger"><span class="glyphicon glyphicon-phone"></span></button>
+									<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
+									<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+								</td>
+							</tr>
 						@endforeach
         			</tbody>
 				</table>

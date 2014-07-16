@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 
+
 @section('content')
     <div class="page-header">
   		<h1>DomiciliosCo <br><small>Su Domicilio a un Tap!</small></h1>

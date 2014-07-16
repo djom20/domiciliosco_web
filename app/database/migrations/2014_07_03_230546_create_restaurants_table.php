@@ -16,11 +16,10 @@ class CreateRestaurantsTable extends Migration {
 			$table->increments('id');
 	        $table->string('name', 100);
 	        $table->string('description', 100)->nullable();
-	        $table->integer('food')->nullable();
+	        $table->integer('restaurants_category_id')->unsigned();
 	        $table->integer('user')->nullable();
 	        $table->string('image')->nullable();
 	        $table->string('email')->nullable();
-	        // $table->string('min_order')->nullable();
 	        $table->string('address')->nullable();
 	        $table->string('lng')->nullable();
 	        $table->string('lat')->nullable();
@@ -50,11 +49,13 @@ class CreateRestaurantsTable extends Migration {
 
 	        $table->integer('state')->default(1);
 	        $table->timestamps();
+	        $table->engine = 'InnoDB';
 		});
 
 		DB::table('restaurants')->insert(array(
 			'name' => 'Mr.Chuzz',
 			'description' => 'Comida Rapida',
+			'restaurants_category_id' => 1,
 			'image' => 'mr_chuzz/logo.jpg',
 			'lng' => '10.997827',
 			'lat' => '-74.803301',

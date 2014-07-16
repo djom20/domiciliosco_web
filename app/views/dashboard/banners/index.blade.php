@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-    <ul class="nav nav-tabs" role="tablist">
+<!--<ul class="nav nav-tabs" role="tablist">
   		<li class="active"><a href="#home" role="tab" data-toggle="tab">Banners</a></li>
-  		<!-- <li><a href="#profile" role="tab" data-toggle="tab">Listar Banner</a></li> -->
-	</ul>
+  		<li><a href="#profile" role="tab" data-toggle="tab">Listar Banner</a></li>
+	</ul> -->
 
-	<div class="tab-content">
-  		<div class="tab-pane active" id="home">
+<!-- 	<div class="tab-content">
+  		<div class="tab-pane active" id="home"> -->
   			<div class="col-md-4">
 	  			<h3>Registrar Banner</h3>
 	  			<br>
@@ -80,8 +80,8 @@
 	        			</tbody>
 					</table>
 	  			</div>
-  			</div>
-  		</div>
+  			<!-- </div>
+  		</div> -->
   		<!-- <div class="tab-pane" id="profile"></div> -->
-	</div>
+	<!-- </div> -->
 @stop

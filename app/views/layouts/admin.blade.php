@@ -8,7 +8,7 @@
        	<meta name="author" content="Ing. Jonathan Olier Miranda"/>
        	<meta name="copyright" content="Todos los derechos reservados por AltiviaOT.com"/>
        	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-       	<link rel="shortcut icon" type="image/x-ico" href="/admin/public/favicon.ico" />
+       	<link rel="shortcut icon" type="image/x-ico" href="/admin/public/favicon2.ico" />
        	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
        	<link rel="stylesheet" type="text/css" href="/admin/public/assets/css/bootstrap.min.css" media="all">
        	<link rel="stylesheet" type="text/css" href="/admin/public/assets/css/admin.css" media="all">
@@ -25,7 +25,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ url('/dashboard/') }}"><img src="/admin/public/assets/images/banner.png" style="width: 2em;"></a>
+                    <!-- <a class="navbar-brand" href="{{ url('/dashboard/') }}"><img src="/admin/public/assets/images/banner.png" style="width: 2em;"></a> -->
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
                     <ul class="nav navbar-nav">
@@ -37,6 +37,9 @@
                         @if(Auth::user()->getRole() == 1)
                             @if(Request::segment(2) === 'banners') <li class="active"> @else <li> @endif
                             <a href="{{ url('dashboard/banners') }}">Banners</a></li>
+
+                            @if(Request::segment(2) === 'message') <li class="active"> @else <li> @endif
+                            <a href="{{ url('dashboard/message') }}">Mensajes</a></li>
                         @endif
 
                         @if(Auth::user()->getRole() != 2)
@@ -58,9 +61,6 @@
 
                             @if(Request::segment(2) === 'users') <li class="active"> @else <li> @endif
                             <a href="{{ url('dashboard/users') }}">Usuarios</a></li>
-
-                            @if(Request::segment(2) === 'message') <li class="active"> @else <li> @endif
-                            <a href="{{ url('dashboard/message') }}">Mensajes</a></li>
                         @endif
                     </ul>
 

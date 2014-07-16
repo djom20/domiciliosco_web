@@ -20,18 +20,7 @@ class LoginController extends BaseController {
 	 * @return Response
 	 */
 	public function create(){
-		if(Request::ajax()){
-			$email = mb_strtolower(trim(Input::get('username')));
-        	$password = Hash::make(Input::get('password'));
-
-			// $user = User::where('email', '=', $email)->where('password', '=', $password)->first();
-			$user = User::where('email', '=', $email)->first();
-			if(!$user == null){
-				Auth::login($user);
-				Cookie::forever('userSessionId', Auth::user()->getAuthIdentifier());
-				if (Auth::check()) return 1; else return 0;
-			}else{ return 2; }
-		}
+		//
 	}
 
 	/**
@@ -41,7 +30,14 @@ class LoginController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		if(Request::ajax()){
+			$email = mb_strtolower(trim(Input::get('username')));
+        	$password = Input::get('password');
+
+			if(Auth::attempt(array('email' => $email, 'password' => $password), true)){
+				if(Auth::check()) return 1; else return 0;
+			}else return 0;
+		}
 	}
 
 	/**

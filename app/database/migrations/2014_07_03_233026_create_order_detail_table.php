@@ -14,10 +14,11 @@ class CreateOrderDetailTable extends Migration {
 		Schema::create('orders_detail', function($table)
 		{
 			$table->increments('id');
-	        $table->integer('order');
-	        $table->integer('menu');
+	        $table->integer('order_id')->unsigned();
+	        $table->integer('menu_id')->unsigned();
 	        $table->integer('amount'); //cantidad
 	        $table->timestamps();
+	        $table->engine = 'InnoDB';
 		});
 	}
 

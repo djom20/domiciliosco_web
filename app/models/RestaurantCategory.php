@@ -8,5 +8,6 @@ class RestaurantCategory extends Eloquent {
 	public function getKey(){ return $this->id; }
 	public function getName(){ return $this->name; }
 	public function getState(){ return $this->state; }
+	public function getRestaurants(){ return $this->hasOne('Restaurant'); }
 
 }

@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="visible-lg-block col-xs-8 col-xs-offset-2 col-sm-5 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
+            <div class="hidden-xs col-xs-8 col-xs-offset-2 col-sm-5 col-sm-offset-0 col-md-6 col-md-offset-0 col-lg-6 col-lg-offset-0">
                 <h1 style="color:#fff; margin-top: 40px;">Los mejores restaurantes de barranquilla, del restaurante a tu mesa en un solo tap!!!</h1>
                 <h3 style="color:#fff; margin: 40px 0;">Ya descargaste DomiciliosCO en tu celular? Que esperas!!!</h3>
                 <div class="stores">
@@ -66,7 +66,7 @@
             //Verificar los datos de logueo
             $("#Sessionlogin").submit(function() {
                 $.ajax({
-                    url: 'session/create',
+                    url: 'session/store',
                     type: 'post',
                     data: {username: $("#username").val(), password: $("#password").val(), _token: $("input[name=_token]").val()},
                     dataType: 'json',
