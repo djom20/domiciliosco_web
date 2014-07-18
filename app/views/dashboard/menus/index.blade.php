@@ -14,18 +14,26 @@
 				<form role="form">
 					<div class="form-group">
 						<label class="visible-xs-inline-block" for="exampleInputPassword1">Restaurante</label>
-						<select class="form-control">
-							@foreach($restaurants as $restaurant)
-								<option value="{{ $restaurant->getKey() }}">{{ $restaurant->getName() }}</option>
-							@endforeach
+						<select class="restaurantList form-control">
+							@if($restaurants->count() > 0)
+								@foreach($restaurants as $restaurant)
+									<option value="{{ $restaurant->getKey() }}">{{ $restaurant->getName() }}</option>
+								@endforeach
+							@else
+								<option value="0">No existen registros</option>
+							@endif
 						</select>
 					</div>
 					<div class="form-group">
 						<label class="visible-xs-inline-block" for="exampleInputPassword1">Categoria</label>
-						<select class="form-control">
-							@foreach($menu_category as $mc)
-								<option value="{{ $mc->getKey() }}">{{ $mc->getName() }}</option>
-							@endforeach
+						<select class="menuCategoryList form-control">
+							@if($menu_category->count() > 0)
+								@foreach($menu_category as $mc)
+									<option value="{{ $mc->getKey() }}">{{ $mc->getName() }}</option>
+								@endforeach
+							@else
+								<option value="0">No existen registros</option>
+							@endif
 						</select>
 					</div>
 					<div class="form-group">
@@ -52,17 +60,25 @@
 				<br>
 				<div class="btn-group btn-group-justified">
 					<div class="btn-group">
-						<select class="form-control select-group-rigth">
-							@foreach($restaurants as $restaurant)
-								<option value="{{ $restaurant->getKey() }}">{{ $restaurant->getName() }}</option>
-							@endforeach
+						<select class="restaurantList form-control select-group-rigth">
+							@if($restaurants->count() > 0)
+								@foreach($restaurants as $restaurant)
+									<option value="{{ $restaurant->getKey() }}">{{ $restaurant->getName() }}</option>
+								@endforeach
+							@else
+								<option value="0">No existen registros</option>
+							@endif
 						</select>
 					</div>
 					<div class="btn-group">
-						<select class="form-control select-group-left">
-							@foreach($menu_category as $mc)
-								<option value="{{ $mc->getKey() }}">{{ $mc->getName() }}</option>
-							@endforeach
+						<select class="menuCategoryList form-control select-group-left">
+							@if($menu_category->count() > 0)
+								@foreach($menu_category as $mc)
+									<option value="{{ $mc->getKey() }}">{{ $mc->getName() }}</option>
+								@endforeach
+							@else
+								<option value="0">No existen registros</option>
+							@endif
 						</select>
 					</div>
 				</div>
@@ -82,26 +98,30 @@
 							</tr>
 						</thead>
 						<tbody>
-							@foreach ($menus as $menu)
-								<tr>
-									<td>{{ $menu->getKey() }}</td>
-									<td>{{ Restaurant::find($menu->getRestaurant())->name }}</td>
-									<td>{{ MenuCategory::find($menu->getCategory())->name }}</td>
-									<td>{{ $menu->getName() }}</td>
-									<td>{{ $menu->getDescription() }}</td>
-									<td>{{ $menu->getPrice() }}</td>
-									<td>{{ $menu->getAditional() }}</td>
-									<td>
-										<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
-										@if($menu->getState() == 1)
-											<button onclick="additionalChangeState({{ $menu->getKey() }}, 0);" class="btn btn-danger"><span class="glyphicon glyphicon-eye-open"></span></button>
-										@else
-											<button onclick="additionalChangeState({{ $menu->getKey() }}, 1);" class="btn btn-danger"><span class="glyphicon glyphicon-eye-close"></span></button>
-										@endif
-										<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
-									</td>
-								</tr>
-							@endforeach
+							@if($menus->count() > 0)
+								@foreach ($menus as $menu)
+									<tr>
+										<td>{{ $menu->getKey() }}</td>
+										<td>{{ Restaurant::find($menu->getRestaurant())->name }}</td>
+										<td>{{ MenuCategory::find($menu->getCategory())->name }}</td>
+										<td>{{ $menu->getName() }}</td>
+										<td>{{ $menu->getDescription() }}</td>
+										<td>{{ $menu->getPrice() }}</td>
+										<td>{{ $menu->getAditional() }}</td>
+										<td>
+											<button class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></button>
+											@if($menu->getState() == 1)
+												<button onclick="additionalChangeState({{ $menu->getKey() }}, 0);" class="btn btn-danger"><span class="glyphicon glyphicon-eye-open"></span></button>
+											@else
+												<button onclick="additionalChangeState({{ $menu->getKey() }}, 1);" class="btn btn-danger"><span class="glyphicon glyphicon-eye-close"></span></button>
+											@endif
+											<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+										</td>
+									</tr>
+								@endforeach
+							@else
+								<tr><td colspan="7">No existen registros</td></tr>
+							@endif
 						</tbody>
 					</table>
 				</div>
@@ -164,10 +184,39 @@
 
 	</script>
 	<script id="MenusCategory">
+		function restaurantListCombo(){
+			$.ajax({
+				url: 'restaurant/index',
+				type: 'post',
+				data: { action: 'combo' },
+				dataType: 'html',
+				error: function(){ $(".restaurantList").html('<option value="0">No existen registros</option>'); },
+				success: function(data) {
+					if(data != null) $(".restaurantList").html(data);
+					else $(".restaurantList").html('<option value="0">No existen registros</option>');
+				}
+			});
+		}
+
+		function menuCategoryListCombo(){
+			$.ajax({
+				url: 'menus_category/index',
+				type: 'post',
+				data: { action: 'combo' },
+				dataType: 'html',
+				error: function(){ $(".menuCategoryList").html('<option value="0">No existen registros</option>'); },
+				success: function(data) {
+					if(data != null) $(".menuCategoryList").html(data);
+					else $(".menuCategoryList").html('<option value="0">No existen registros</option>');
+				}
+			});
+		}
+
 		function menuCategoryList(){
 			$.ajax({
 				url: 'menus_category/index',
 				type: 'post',
+				data: { action: 'list' },
 				dataType: 'html',
 				error: function(){ $("#menuCategoryList").html('<tr><td colspan="7">No existen registros</td></tr>'); },
 				success: function(data) {
@@ -259,5 +308,6 @@
         }
 
 		setInterval(function(){ menuCategoryList(); }, 3000);
+		setInterval(function(){ menuCategoryListCombo(); }, 3000);
 	</script>
 @stop

@@ -11,6 +11,10 @@ class RestaurantsController extends \BaseController {
 	{
 		if (!Auth::check()) return Redirect::to('/');
 		else{
+			if(Input::get('action') == 'combo'){
+				$restaurants = Restaurant::where('state', '=', '1')->orderBy('name')->get();
+				return View::make('dashboard.restaurants.list')->with('restaurants', $restaurants);
+			}
 			$restaurants = Restaurant::all();
 			$restaurantsCategory = RestaurantCategory::all();
 			return View::make('dashboard.restaurants.index')
@@ -45,7 +49,7 @@ class RestaurantsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show()
 	{
 		//
 	}
@@ -56,7 +60,7 @@ class RestaurantsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit()
 	{
 		//
 	}
@@ -67,7 +71,7 @@ class RestaurantsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
 		//
 	}
@@ -78,7 +82,7 @@ class RestaurantsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
 		//
 	}

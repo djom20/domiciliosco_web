@@ -13,7 +13,9 @@ class MenusCategoryController extends BaseController {
 		else{
 			$menu_category = MenuCategory::all();
 			if(Request::ajax())
-				return View::make('dashboard.menus_category.list')->with('menu_category', $menu_category);
+				return View::make('dashboard.menus_category.list')
+					->with('menu_category', $menu_category)
+					->with('action', Input::get('action'));
 		}
 	}
 
