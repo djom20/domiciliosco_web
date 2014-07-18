@@ -11,18 +11,16 @@ class AdditionalController extends BaseController {
 	{
 		if (!Auth::check()) return Redirect::to('/');
 		else{
+			$additional = Additional::all();
+			
 			if(!Request::ajax()){
-				$additional = Additional::where('state', '=', '1')->orderBy('name')->get();
 				$menus = Menu::all();
-				$restaurants = Restaurant::all();
+				$restaurants = Restaurant::where('state', '=', '1')->orderBy('name')->get();
 				return View::make('dashboard.additional.index')
 					->with('additional', $additional)
 					->with('menus', $menus)
 					->with('restaurants', $restaurants);
-			}else{
-				$additional = Additional::where('state', '=', '1')->orderBy('name')->get();
-				return View::make('dashboard.additional.list')->with('additional', $additional);
-			}
+			}else return View::make('dashboard.additional.list')->with('additional', $additional);
 		}
 	}
 
@@ -33,7 +31,7 @@ class AdditionalController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		// if(Request::ajax()) return View::make('dashboard.additional.create');
 	}
 
 	/**
@@ -53,10 +51,15 @@ class AdditionalController extends BaseController {
 				$additional->setMenu(Input::get('food'));
 				$additional->setRestaurant(Input::get('restaurant'));
 				$additional->save();
-				return 1;
+				
+				$menus = Menu::all();
+				$restaurants = Restaurant::where('state', '=', '1')->orderBy('name')->get();
+				return View::make('dashboard.additional.create')
+						->with('menus', $menus)
+						->with('restaurants', $restaurants);
 			}
 		}
-		return 0;
+		return null;
 	}
 
 	/**
@@ -76,9 +79,17 @@ class AdditionalController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit()
 	{
-		//
+		if(Request::ajax()){
+			$additional = Additional::find(Input::get('id'));
+			$restaurants = Restaurant::where('state', '=', '1')->orderBy('name')->get();
+			$menus = Menu::where('state', '=', '1')->orderBy('name')->get();
+			return View::make('dashboard.additional.edit')
+				->with('additional', $additional)
+				->with('menus', $menus)
+				->with('restaurants', $restaurants);
+		}
 	}
 
 	/**
@@ -87,9 +98,32 @@ class AdditionalController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
-		//
+		if(Request::ajax()){
+			$additional = Additional::find(Input::get('id'));
+			if($additional){
+				if(Input::get('action') != 'state'){
+					$additional->setName(Input::get('name'));
+					$additional->setDescription(Input::get('description'));
+					$additional->setPrice(Input::get('price'));
+					$additional->setMenu(Input::get('food'));
+					$additional->setRestaurant(Input::get('restaurant'));
+					$additional->save();
+					
+					$menus = Menu::all();
+					$restaurants = Restaurant::where('state', '=', '1')->orderBy('name')->get();
+					return View::make('dashboard.additional.create')
+						->with('menus', $menus)
+						->with('restaurants', $restaurants);
+				}else{
+					$additional->setState(Input::get('state'));
+					$additional->save();
+					return 1;
+				}
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -101,12 +135,8 @@ class AdditionalController extends BaseController {
 	public function destroy()
 	{
 		if(Request::ajax()){
-			$additional = Additional::find(Input::get('id'));
-			if($additional){
-				$additional->setState(0);
-				$additional->save();
-				return 1;				
-			}
+			Additional::destroy(Input::get('id'));
+			return 1;
 		}
 		return 0;
 	}

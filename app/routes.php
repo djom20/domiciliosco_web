@@ -28,10 +28,27 @@ Route::group(array('after' => 'auth'), function(){
 		Route::group(array('prefix' => 'additional'), function(){
 			Route::post('store', array('as'=> 'save_additional', 'uses' => 'AdditionalController@store'));
 			Route::post('index', array('as'=> 'list_additional', 'uses' => 'AdditionalController@index'));
+			Route::post('edit', array('as'=> 'edit_additional', 'uses' => 'AdditionalController@edit'));
+			Route::post('update', array('as'=> 'update_additional', 'uses' => 'AdditionalController@update'));
 			Route::post('destroy', array('as'=> 'destroy_additional', 'uses' => 'AdditionalController@destroy'));
+		});
+		Route::group(array('prefix' => 'banners'), function(){
+			// Route::post('store', array('as'=> 'save_banner', 'uses' => 'BannersController@store'));
+			Route::post('edit', array('as'=> 'edit_banner', 'uses' => 'BannersController@edit'));
+			Route::post('update', array('as'=> 'update_banner', 'uses' => 'BannersController@update'));
+			Route::post('index', array('as'=> 'list_banner', 'uses' => 'BannersController@index'));
+			Route::post('destroy', array('as'=> 'destroy_banner', 'uses' => 'BannersController@destroy'));
+		});
+		Route::group(array('prefix' => 'menus_category'), function(){
+			Route::post('store', array('as'=> 'save_menus_category', 'uses' => 'MenusCategoryController@store'));
+			Route::post('edit', array('as'=> 'edit_menus_category', 'uses' => 'MenusCategoryController@edit'));
+			Route::post('update', array('as'=> 'update_menus_category', 'uses' => 'MenusCategoryController@update'));
+			Route::post('index', array('as'=> 'list_menus_category', 'uses' => 'MenusCategoryController@index'));
+			Route::post('destroy', array('as'=> 'destroy_menus_category', 'uses' => 'MenusCategoryController@destroy'));
 		});
 		Route::resource('banners', 'BannersController');
 		Route::resource('menus', 'MenusController');
+		Route::resource('menus_category', 'MenusCategoryController');
 		Route::resource('orders', 'OrdersController');
 		Route::resource('reports', 'ReportsController');
 		Route::resource('restaurants', 'RestaurantsController');

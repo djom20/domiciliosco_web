@@ -9,4 +9,8 @@ class MenuCategory extends Eloquent {
 	public function getName(){ return $this->name; }
 	public function getState(){ return $this->state; }
 
+	public function setName($value){ $this->name = $value; }
+	public function setState($value){ $this->state = $value; }
+
+
 }

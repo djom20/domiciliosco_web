@@ -35,7 +35,7 @@ class CreateForeignKeys extends Migration {
 		});
 
 		Schema::table('additional', function($table){
-			$table->foreign('menu_id')->references('id')->on('menus_category')->onDelete('cascade')->onUpdate('cascade');
+			$table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade')->onUpdate('cascade');
 			$table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade')->onUpdate('cascade');
 		});
 	}
